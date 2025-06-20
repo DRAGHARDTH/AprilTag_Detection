@@ -1,0 +1,7 @@
+{
+  "entries": [
+    { "id": 1, "image": "box_1.png" },
+    { "id": 2, "image": "box_2.png" },
+    { "id": 3, "image": "box_3.png" }
+  ]
+}

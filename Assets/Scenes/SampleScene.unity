@@ -442,8 +442,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 712086327}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 711.1111, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -469,10 +469,9 @@ MonoBehaviour:
       m_Calls: []
   points: []
   color: {r: 0, g: 1, b: 0.20677495, a: 0}
-  isCenter: 1
   thickness: 5
-  spacing: 5
-  segments: 12
+  spacing: 2
+  segments: 10
 --- !u!222 &498942233
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -790,6 +789,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1002086489}
   - component: {fileID: 1002086488}
+  - component: {fileID: 1002086490}
   m_Layer: 0
   m_Name: AprilTag Manager
   m_TagString: Untagged
@@ -810,6 +810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineRenderer: {fileID: 498942232}
+  tagDisplayManager: {fileID: 1002086490}
 --- !u!4 &1002086489
 Transform:
   m_ObjectHideFlags: 0
@@ -825,6 +826,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 207425938}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1002086490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1002086487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2280aeba7a8a124c818248cf1d0f46c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageDisplayParent: {fileID: 712086327}
+  imagePrefab: {fileID: 8944121268564792979, guid: 4e4df1ebbda66814a847f775a46f5b51, type: 3}
+  jsonFileName: aprilTag_image_map.json
 --- !u!1 &1101113622
 GameObject:
   m_ObjectHideFlags: 0
