@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using static UnityEngine.UI.GridLayoutGroup;
@@ -12,12 +13,16 @@ public class AprilTagDetector : MonoBehaviour
     [Header("References")]
     public UILineRenderer lineRenderer;
     public AprilTagDisplayManager tagDisplayManager;
+    public TextMeshProUGUI errorMsg;
 
     // === Runtime Data ===
     private Texture2D currentFrame;
 
     public void SendCapturedFrame()
     {
+        // Clear error message.
+        errorMsg.text = string.Empty;
+
         // Dispose previous frame and clear overlays.
         if (currentFrame != null)
         {
@@ -59,6 +64,8 @@ public class AprilTagDetector : MonoBehaviour
             if (request.result != UnityWebRequest.Result.Success)
             {
                 Debug.LogError($"Error: {request.error}");
+                errorMsg.text = $"Error: {request.error}";
+                errorMsg.color = Color.red;
                 yield break;
             }
 
@@ -71,7 +78,10 @@ public class AprilTagDetector : MonoBehaviour
 
                 if (tagResponse.detections == null || tagResponse.detections.Count == 0)
                 {
-                    Debug.LogWarning("No tags detected in the response.");
+                    string error = "No tags detected in the frame.";
+                    Debug.LogWarning(error);
+                    errorMsg.text = error;
+                    errorMsg.color = Color.yellow;
                     yield break;
                 }
 
@@ -80,6 +90,8 @@ public class AprilTagDetector : MonoBehaviour
             catch (Exception ex)
             {
                 Debug.LogWarning($"Failed to parse server response: {ex.Message}");
+                errorMsg.text = "Failed to parse server response";
+                errorMsg.color = Color.yellow;
             }
         }
     }

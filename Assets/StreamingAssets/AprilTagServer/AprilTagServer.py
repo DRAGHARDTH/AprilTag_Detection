@@ -34,5 +34,9 @@ def detect_apriltag():
 
     return jsonify({'detections': result})
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+@app.route('/ping')
+def ping():
+    return "pong"
+
+if __name__ == "__main__":
+    app.run(host="127.0.0.1", port=5000, debug = False)
