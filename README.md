@@ -15,14 +15,14 @@ A Unity-based computer vision tool for detecting AprilTags in real-time using an
 🛠️ Tech Stack
 Component	Technology
 Engine	Unity (C#)
-Backend	Python (Flask, OpenCV, pyAprilTag)
+Backend	Python (Flask, OpenCV, pupil_apriltags)
 Communication	TCP / HTTP via UnityWebRequest
 Platform	Cross-platform (Tested on Windows)
 
 📷 How It Works
 Unity sends a frame (or camera stream data) to the Python server.
 
-Python server processes the frame to detect AprilTags using OpenCV + pyAprilTag.
+Python server processes the frame to detect AprilTags using OpenCV + pupil_apriltags.
 
 Detected tag data (ID, pose, size, etc.) is returned to Unity.
 
